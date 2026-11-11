@@ -1,0 +1,27 @@
+# Render Blueprint — خدمة واحدة تخدم الـ API والواجهة معًا
+services:
+  - type: web
+    name: masak-quran-forum
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm run render-build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: NODE_ENV
+        value: production
+      - key: APP_TIMEZONE
+        value: Asia/Hebron
+      - key: DATABASE_URL
+        sync: false          # الصقه من Supabase
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        sync: false          # اختر كلمة مرور قوية للمسؤول
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CREDENTIALS_KEY
+        generateValue: true

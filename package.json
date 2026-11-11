@@ -1,0 +1,19 @@
+{
+  "name": "masak-quran-forum",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ملتقى المسك القرآني — نظام إدارة الحلقات القرآنية",
+  "scripts": {
+    "install:all": "npm install --prefix server && npm install --prefix client",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "build": "npm install --prefix client --include=dev && npm run build --prefix client",
+    "start": "npm start --prefix server",
+    "migrate": "npm run migrate --prefix server",
+    "render-build": "npm install --prefix server && npm run build && npm run migrate",
+    "test": "echo \"no tests\""
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
